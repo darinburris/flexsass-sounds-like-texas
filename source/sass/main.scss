@@ -1,0 +1,31 @@
+@import 'rem';
+@import '_flexsass.scss';
+
+$break-small: rem(768px);
+$break-large: rem(1200px);
+
+body {
+	color: $black;
+}
+
+main {
+
+	@media screen and (min-width: $break-small) {
+		background-color: blue;
+	}
+
+	@media screen and (min-width: $break-large) {
+
+		background-color: RebeccaPurple;
+		margin: 0 auto;
+		width: rem(1200px);
+	}
+
+	background-color: red;
+	width: 100%;
+
+}
+
+p {
+	letter-spacing: 4px;
+}

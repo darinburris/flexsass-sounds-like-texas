@@ -1,0 +1,39 @@
+{
+  "name": "flexsass",
+  "version": "1.0.0",
+  "description": "Responsive flexbox grid built with SASS. Enjoy!",
+  "main": "gruntfile.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darinburris/flexsass-sounds-like-texas.git"
+  },
+  "keywords": [
+    "RWD",
+    "SASS",
+    "Flexbox",
+    "#SayNoToFloats"
+  ],
+  "author": "Darin Burris",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darinburris/flexsass-sounds-like-texas/issues"
+  },
+  "homepage": "https://github.com/darinburris/flexsass-sounds-like-texas#readme",
+  "devDependencies": {
+    "chalk": "^2.3.1",
+    "express": "^4.16.2",
+    "grunt": "^1.0.2",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-rename-util": "^1.0.0",
+    "grunt-sass": "^2.1.0",
+    "grunt-sass-lint": "^0.2.4",
+    "load-grunt-tasks": "^3.5.2",
+    "node-bourbon": "^4.2.8"
+  }
+}
