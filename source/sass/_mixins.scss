@@ -1,0 +1,48 @@
+//************************************************************************
+//Media query variables for defining mobile, tablet and desktop media queries
+//Tablet includes both min and max widths to constrain the condition in which the tablet would exist
+//************************************************************************
+$max-width: 767px; //for mobile
+$min-width: 768px; //$min-width variable to support the existing media queries only
+$min-tablet-width: 768px; //for tablet
+$min-tablet-landscape-width: 568px;//for tablet landscape
+$max-tablet-width: 1024px; //for tablet
+$desktop-min-width: 1025px; //for desktop
+//************************************************************************
+//Media query mixins for mobile, tablet and desktop
+//the following approach taken from
+//http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32
+//
+//ex of implementation:
+//    @include media(mobile) {
+//	     font-size: 18px;
+//    }
+//
+@mixin media($query) {
+
+	@if $query == mobile {
+
+		@media screen and (max-width: #{$max-width}) {
+			@content;
+		}
+
+	} @else if $query == tablet {
+
+		@media screen and (min-width: #{$min-tablet-width}) and (max-width: #{$max-tablet-width}) {
+			@content;
+		}
+
+	} @else if $query == tablet-landscape {
+
+		@media screen and (min-width: #{$min-tablet-landscape-width}) and (max-width: #{$max-tablet-width}) {
+			@content;
+		}
+
+	} @else if $query == desktop {
+
+		@media screen and (min-width: #{$desktop-min-width}) {
+			@content;
+		}
+
+	}
+}

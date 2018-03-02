@@ -56,7 +56,7 @@ module.exports = function(grunt) {
 				configFile: '.sass-lint.yml',
 			},
 			target: [
-				'source/scss/\*.scss'
+				'source/sass/\*.scss'
 			]
 		},
 		/**
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
 				files: [
 					'./source/**/*.html'
 				],
-				tasks: ['newer:copy:buildHTML'],
+				tasks: ['copy:buildHTML'],
 				options: {
 					spawn: false
 				}

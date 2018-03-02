@@ -1,1 +1,10 @@
-$black: #000;
+$map: (
+    key: 'value',
+    nextkey: 'nextvalue'
+);
+
+$grid: (
+    columns: 12,
+    max-width: '1200px',
+    gutters: '20px'
+);
