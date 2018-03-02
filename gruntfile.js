@@ -56,7 +56,8 @@ module.exports = function(grunt) {
 				configFile: '.sass-lint.yml',
 			},
 			target: [
-				'source/sass/\*.scss'
+				'source/sass/\*.scss',
+				'!source/sass/02_tools/_diagnostic.scss'
 			]
 		},
 		/**
@@ -68,6 +69,18 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: './source',
 					src: ['**/*.html'],
+					dest: './release'
+				}]
+			},
+			buildIMG: {
+				files: [{
+					expand: true,
+					cwd: './source',
+					src: [
+						'**/*.jpg',
+						'**/*.gif',
+						'**/*.png'
+					],
 					dest: './release'
 				}]
 			},
@@ -162,7 +175,7 @@ module.exports = function(grunt) {
 		function() {
 			grunt.config.set('taskName', this.name);
 			grunt.task.run(
-				['clean:preRelease', 'copy:buildHTML','sass:dist','rename:sass']//'rjsReplace', , 'jscs','clean:postRelease
+				['clean:preRelease', 'copy:buildHTML','copy:buildIMG','sass:dist','rename:sass']//'rjsReplace', , 'jscs','clean:postRelease
 			);
 		}
 	);

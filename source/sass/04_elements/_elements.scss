@@ -51,6 +51,63 @@ main {
 
 	}
 
+	&.test {
+
+		@include media(desktop){
+			// @include column-collapse();
+			flex-wrap: wrap;
+		}
+
+		section {
+
+			background-color: $green;
+			// width: 100%;
+
+			@include media(tablet){
+
+				@include columns(8);
+				flex-wrap: wrap;
+
+			}
+
+			@include media(desktop){
+				@include grid();
+				@include columns(8);
+			}
+
+			p {
+
+				width: 100%;
+
+				@include media(tablet){
+
+					@include columns(4);
+					width: 100%;
+
+				}
+	
+				@include media(desktop){
+					@include columns(4);
+				}
+
+			}
+
+		}
+
+		aside {
+
+			@include media(tablet){
+				@include columns(4);
+			}
+
+			@include media(desktop){
+				@include columns(4);
+			}
+
+		}
+
+	}
+
 }
 
 footer {
