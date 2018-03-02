@@ -8,14 +8,6 @@ body {
 	color: $black;
 	font-family: sans-serif;
 	font-size: 16px;
-}
-
-main {
-
-	background-color: $red;
-
-	//define the container as a grid container and set properties accordingly
-	@include grid();
 
 	@include media(mobile) {
 		background-color: $blue;
@@ -25,12 +17,23 @@ main {
 		background-color: $rebecca-purple;
 	}
 
+}
+
+main {
+
+	background-color: $light;
+	margin-top: rem(20px);
+
+	//define the container as a grid container and set properties accordingly
+	@include grid();
+
 	h1 {
 		@include columns(12);
 	}
 
 	section {
 
+		background-color: $red;
 		width: 100%;
 
 		@include media(desktop){
@@ -43,6 +46,7 @@ main {
 
 	aside {
 
+		background-color: $green;
 		width: 100%;
 
 		@include media(desktop){
