@@ -1,26 +1,21 @@
+@import 'settings';
 @import 'rem';
 @import 'vars';
 @import 'mixins';
 @import 'flexsass';
 
-$colors: (
-	light: $light,
-	dark: $black
-);
-
-$brand-colors: (
-	main: $red,
-	alternative: $blue
-);
-
-// Merge maps
-$merged: map-merge($colors, $brand-colors);
-
 body {
 	color: $black;
+	font-family: sans-serif;
+	font-size: 16px;
 }
 
 main {
+
+	background-color: $red;
+
+	//define the container as a grid container and set properties accordingly
+	@include grid();
 
 	@include media(mobile) {
 		background-color: $blue;
@@ -28,33 +23,44 @@ main {
 
 	@include media(desktop) {
 		background-color: $rebecca-purple;
-		margin: 0 auto;
-		width: rem(1200px);
 	}
 
-	background-color: $red;
-	width: 100%;
-}
+	h1 {
+		@include columns(12);
+	}
 
-p {
+	section {
 
-	letter-spacing: 4px;
-	width: 100%;
+		width: 100%;
 
-	@if map-has-key($map, key) {
-		content: 'Map has this key.';
-	} @else {
-		content: 'Map has not this key.';
+		@include media(desktop){
+
+			@include columns(9);
+
+		}
+
+	}
+
+	aside {
+
+		width: 100%;
+
+		@include media(desktop){
+
+			@include columns(3);
+
+		}
+
 	}
 
 }
 
-.element {
+footer {
 
-	content: map-get($merged, alternative);
+	background-color: $light;
 
-	&::before {
-		content: map-get($map, key);
+	@include media(desktop) {
+		@include grid();
 	}
 
 }
