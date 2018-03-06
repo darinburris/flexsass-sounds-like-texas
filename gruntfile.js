@@ -84,6 +84,16 @@ module.exports = function(grunt) {
 					dest: './release'
 				}]
 			},
+			buildJS: {
+				files: [{
+					expand: true,
+					cwd: './source',
+					src: [
+						'**/*.js'
+					],
+					dest: './release'
+				}]
+			},
 			dist: {
 				files: [
 					{
@@ -175,7 +185,7 @@ module.exports = function(grunt) {
 		function() {
 			grunt.config.set('taskName', this.name);
 			grunt.task.run(
-				['clean:preRelease', 'copy:buildHTML','copy:buildIMG','sass:dist','rename:sass']//'rjsReplace', , 'jscs','clean:postRelease
+				['clean:preRelease', 'copy:buildHTML','copy:buildIMG','copy:buildJS','sass:dist','rename:sass']//'rjsReplace', , 'jscs','clean:postRelease
 			);
 		}
 	);

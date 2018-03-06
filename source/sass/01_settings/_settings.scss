@@ -1,0 +1,8 @@
+$grid: () !default;
+$custom-grid: () !default;
+
+$grid: (
+	columns: 8,
+	max-width: 1200,
+	gutters: 20
+);
