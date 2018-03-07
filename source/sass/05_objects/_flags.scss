@@ -1,0 +1,23 @@
+.tx-flag {
+	height: -webkit-fill-available;
+	width: 100%;
+
+	.white {
+		width: 100%;
+		height: -webkit-fill-available;
+		fill: $white;
+	}
+
+	.red {
+		width: 100%;
+		height: 38.6%;
+		fill: $red;
+	}
+
+	.blue {
+		width: 100%;
+		height: -webkit-fill-available;
+		fill: $blue;
+	}
+
+}

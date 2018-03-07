@@ -1,0 +1,53 @@
+{
+	"base"		: {
+		"appName"			:	"FlexSass",
+		"Instructions"		:	"the base properties are for handling top level key/values pairs related to the architecture",
+		"langCntry"			:	"en-US",
+		"direction"			:	"ltr",
+		"sourceDir"			: 	"source",
+		"ampIndex"			: 	"release/index.html",
+		"tempDir"			:	"TEMP",
+		"releaseDir" 		: 	"release",
+		"reportsDir" 		: 	"reports",
+		"reportsTempDir" 	: 	"reportsBaseFiles",
+		"reportsViewsDir" 	: 	"views",
+		"reportsIndex" 		: 	"_base.html",
+		"reportsJs" 		: 	"reports.js",
+		"templateBaseFiles" 	: 	"templateBaseFiles"
+	},
+	"quality" 			: {
+		"Instructions"		:	"the quality properties are for handling key/values pairs related to the code quality",
+		"doctype" 			: 	"HTML5",
+		"w3cStatusDir" 		: 	"reports/validation/validation-status.json",
+		"w3cReportDir" 		: 	"reports/validation/validation-report.json",
+		"w3cIgnore" 		: 	[
+								"Bad value X-UA-Compatible for attribute http-equiv on element meta.",
+								"Element include not allowed as child of element body in this context.",
+								"Bad value javascript for attribute type on element script: Subtype missing."
+							],
+		"wcag" 				: 	"WCAG2AA",
+		"wcagDir" 			: 	"reports/accessibility",
+		"wcagBaseFile" 		: 	"reports/accessibility.json",
+		"wcagExt" 			: 	"-report-dom",
+		"jshintrcFile"		:	".jshintrc",
+		"jshintrcGruntFile"	:	".jshintrcGrunt"
+	},
+	"templating" 		: {
+		"templateBaseDir" 	: 	"templateBaseFiles",
+		"choices"			:	[
+									{"name": "Full Width Template",					"value": "_full-width.html"},
+									{"name": "2 Column Left",						"value": "_2-column_left.html"},
+									{"name": "2 Column Left, 3 Column Content",		"value": "_2-column_left-3-column_content.html"},
+									{"name": "2 Column Left, 4 Column Content",		"value": "_2-column_left-4-column_content.html"},
+									{"name": "2 Column Right",						"value": "_2-column_right.html"},
+									{"name": "2 Column Equal",						"value": "_2-column_equal.html"},
+									{"name": "3 Column",							"value": "_3-column.html"}
+								]
+	},
+	"includes"			:	{
+		"path"				:	"includes"
+	},
+	"cdn" 				:	{
+		"js"				:	"//cdnjs.cloudflare.com"
+	}
+}
