@@ -36,9 +36,6 @@ module.exports = function(grunt) {
 		* minification/concatination
 		**/
 		sass: {
-			options : {
-				includePaths: require('node-bourbon').includePaths,
-			},
 			dist: {
 				files: [
 					{
@@ -73,8 +70,11 @@ module.exports = function(grunt) {
 				configFile: '.sass-lint.yml',
 			},
 			target: [
-				'source/sass/\*.scss',
-				'!source/sass/02_tools/_diagnostic.scss'
+				'source/sass/**/*.scss',
+				'!source/sass/02_tools/_diagnostic.scss',
+				'!source/sass/02_tools/_rem.scss',
+				'!source/sass/03_generic/_normalize.scss',
+				'!source/sass/07_utilities/_access-scss.scss'
 			]
 		},
 		/**
@@ -277,6 +277,7 @@ module.exports = function(grunt) {
 					"copy:buildHTML",
 					"copy:buildIMG",
 					"copy:buildJS",
+					"sasslint",
 					"sass:dist",
 					"rename:sass",
 					"includes",
