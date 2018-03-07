@@ -23,19 +23,19 @@
 ///   }
 
 @mixin grid-visual($color: null, $grid: $grid) {
-  @if not $color {
-    $color: #ededed;
-  }
+	@if not $color {
+		$color: #ededed;
+	}
 
-  $_grid-columns: map-get($grid, columns);
-  $_grid-gutter: map-get($grid, gutters);
-  $_grid-visual-column: "#{_column-width($grid, 1)} + #{$_grid-gutter}px";
-  $_grid-visual:
-    transparent,
-    transparent $_grid-gutter + px,
-    $color $_grid-gutter + px,
-    $color calc(#{$_grid-visual-column}),
-  ;
-  @debug $_grid-visual;
-  background-image: repeating-linear-gradient(to right, $_grid-visual);
+	$_grid-columns: map-get($grid, columns);
+	$_grid-gutter: map-get($grid, gutters);
+	$_grid-visual-column: "#{_column-width($grid, 1)} + #{$_grid-gutter}px";
+	$_grid-visual:
+		transparent,
+		transparent $_grid-gutter + px,
+		$color $_grid-gutter + px,
+		$color calc(#{$_grid-visual-column}),
+	;
+
+	background-image: repeating-linear-gradient(to right, $_grid-visual);
 }

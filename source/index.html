@@ -1,50 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="@@langCntry">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
-	<link rel="stylesheet" href="/css/main.css">
+	<include file="includes/common/css.html" />
 </head>
-<body>
+<body dir="@@direction">
+
+	<include file="includes/common/masthead.html" />
 
 	<main>
 
-		<h1>Welcome</h1>
+		<h1>Welcome to FlexSass (sounds like Texas)</h1>
 
 		<section>
 
-			<h2>This is a section</h2>
-
-			<p>This is just a test</p>
-
-			<a href="test.html">Test</a>
-
-			<figure>
+			<!-- <figure>
 				<img src="/img/flexsass.jpg" />
 				<figcaption>
-					<p>this is a caption</p>
+					<p>Yeehaw!!</p>
 				</figcaption>
-			</figure>
-
-			<iframe src="http://www.darinburris.com" frameborder="0" width="300" height="300"></iframe>
+			</figure> -->
 
 		</section>
 
-		<aside>
-
-			<h2>Aside content goes here</h2>
-
-			<form action="">
-				<input type="text" placeholder="this is a placeholder" />
-			</form>
-
-		</aside>
-
 	</main>
 
-	<footer>Footer</footer>
+	<include file="includes/common/footer.html" />
+
+	<include file="includes/common/js.html" />
 
 </body>
 </html>

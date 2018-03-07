@@ -1,105 +1,80 @@
 body {
 
 	color: $black;
-	font-family: sans-serif;
+	font-family: $helv;
 	font-size: 16px;
+	font-weight: 300;
 
 }
 
-main {
+section,
+a,
+p,
+q,
+aside,
+header,
+h1, h2, h3,h4, h5, h6 {
 
-	margin-top: rem(20px);
-
-	//define the container as a grid container and set properties accordingly
-	@include grid-visual;
-	@include grid();
-
-	h1 {
-		@include columns(8);
+	&::selection {
+		background: $fedex-yellow;
+		color: $fedex-purple;
 	}
 
-	section {
+}
 
-		width: 100%;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 
-		@include media(desktop){
+	font-weight: 400;
 
-			@include columns(6);
+	&.logo {
 
-		}
+		a {
 
-	}
+			color: $fedex-orange;
+			font-family: $oswald;
+			font-size: rem(78px);
+			font-weight: bold;
+			letter-spacing: -6px;
+			text-decoration: none;
 
-	aside {
-
-		width: 100%;
-
-		@include media(desktop){
-
-			@include columns(2);
-
-		}
-
-	}
-
-	&.test {
-
-		@include media(desktop){
-			flex-wrap: wrap;
-		}
-
-		section {
-
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: space-evenly;
-			// width: 100%;
-
-			@include media(tablet){
-
-				@include columns(6);
-				flex-wrap: wrap;
-
-			}
-
-			@include media(desktop){
-				@include columns(6);
-			}
-
-			p {
-
-				width: 100%;
-
-				@include media(tablet){
-					width: 100%;
-				}
-	
-				@include media(desktop){
-					width: calc(100% / 4);
-				}
-
-				&:last-child {
-
-					@include media(desktop){
-						width: calc(100% / 4);
-					}
-
-				}
-
+			strong {
+				color: $fedex-purple;
 			}
 
 		}
 
-		aside {
+		q {
 
-			@include media(tablet){
-				@include columns(2);
+			@include media(tablet-up) {
+				background-color: transparent;
+				color: $black;
+				display: inline;
+				padding-left: 20px;
+				width: auto;
+				position: auto;
+				left: auto;
+				right: auto;
+				margin-left: auto;
+				margin-right: auto;
 			}
 
-			@include media(desktop){
-				@include columns(2);
-			}
+			background-color: $fedex-red;
+			color: $white;
+			display: block;
+			font-family: monospace;
+			font-size: 20px;
+			padding: 20px;
+			
+			width: 100vw;
+			position: relative;
+			left: 50%;
+			right: 50%;
+			margin: 20px -50vw 0;
 
 		}
 
@@ -107,10 +82,22 @@ main {
 
 }
 
-footer {
+a {
 
-	@include media(desktop) {
-		@include grid();
+	color: $fedex-blue;
+
+	&:visited {
+		color: $fedex-blue;		
+	}
+
+	&:hover {
+		color: $fedex-purple;
+	}
+
+	&:active {
+		color: $fedex-green;
 	}
 
 }
+
+footer {}

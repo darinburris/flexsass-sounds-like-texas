@@ -1,0 +1,234 @@
+header {
+
+	@include media(tablet-up) {
+		@include grid;
+		@include grid-visual;
+	}
+
+	min-height: $hdr-min-height;
+	margin: 0 auto;
+	width: calc(100% - 20px);
+
+	h1,
+	nav {
+
+		@include media(tablet-up) {
+			@include columns(12);
+		}
+
+		// margin: 0 auto;
+		// width: calc(100% - 20px);
+
+	}
+
+}
+
+main {
+
+	@include media(tablet-up) {
+		@include grid;
+		@include grid-visual;
+
+		* {
+			flex-basis: auto;
+			width: 100%;
+		}
+
+	}
+
+	// height: calc(100vh - #{$hdr-min-height});
+	margin: 0 auto;
+	width: calc(100% - 20px);
+
+	section {
+
+		@include columns(12);
+
+		@include media(tablet-up) {
+			@include columns(12);
+		}
+
+	}
+
+}
+
+.two-column-equal {
+
+	main {
+
+		@include media(tablet-up) {
+			@include grid;
+			@include grid-visual;
+		}
+
+		h1 {
+			@include columns(12);
+		}
+
+		section {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(6);
+			}
+
+		}
+
+	}
+
+}
+
+.two-column-first-three-content,
+.two-column-first-four-content {
+
+	main {
+
+		@include media(tablet-up) {
+			@include grid;
+			@include grid-visual;
+		}
+
+		nav {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(3);				
+			}
+			
+		}
+
+		section {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(9);
+			}
+
+		}
+
+	}
+
+}
+
+.two-column-first {
+
+	main {
+
+		@include media(tablet-up) {
+			@include grid;
+			@include grid-visual;
+		}
+
+		nav {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(3);				
+			}
+			
+		}
+
+		section {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(9);
+			}
+
+		}
+
+	}
+
+}
+
+.two-column-last {
+
+	main {
+
+		@include media(tablet-up) {
+			@include grid;
+			@include grid-visual;
+		}
+
+		section {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(9);
+			}
+
+		}
+
+		aside {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(3);				
+			}
+			
+		}
+
+	}
+
+}
+
+.three-column {
+
+	main {
+
+		@include media(tablet-up) {
+			@include grid;
+			@include grid-visual;
+		}
+
+		nav {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(2);				
+			}
+			
+		}
+
+		section {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(8);
+			}
+
+		}
+
+		aside {
+
+			@include columns(12);
+
+			@include media(tablet-up) {
+				@include columns(2);
+			}
+
+		}
+
+	}
+
+}
+
+footer {
+
+	@include media(desktop) {
+		@include grid();
+	}
+
+	margin: 0 auto;
+	width: calc(100% - 20px);
+
+}

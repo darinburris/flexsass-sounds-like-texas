@@ -14,13 +14,13 @@
 	padding-right: map-get($grid, gutters) + px; 
 	width: 100%;
 
-	@include media(tablet) {
-		flex-wrap: nowrap;
-	}
+	// @include media(tablet) {
+	// 	flex-wrap: nowrap;
+	// }
 
-	@include media(desktop) {
-		flex-wrap: nowrap;
-	}
+	// @include media(desktop) {
+	// 	flex-wrap: nowrap;
+	// }
 
 }
 

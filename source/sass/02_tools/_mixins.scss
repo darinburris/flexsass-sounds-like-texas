@@ -38,6 +38,12 @@ $desktop-min-width: 1025px; //for desktop
 			@content;
 		}
 
+	} @else if $query == tablet-up {
+
+		@media screen and (min-width: #{$min-tablet-width}) {
+			@content;
+		}
+
 	} @else if $query == desktop {
 
 		@media screen and (min-width: #{$desktop-min-width}) {
