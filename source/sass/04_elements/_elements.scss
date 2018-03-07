@@ -13,7 +13,12 @@ p,
 q,
 aside,
 header,
-h1, h2, h3,h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 
 	&::selection {
 		background: $fedex-yellow;
@@ -54,13 +59,13 @@ h6 {
 				background-color: transparent;
 				color: $black;
 				display: inline;
-				padding-left: 20px;
-				width: auto;
-				position: auto;
 				left: auto;
-				right: auto;
 				margin-left: auto;
 				margin-right: auto;
+				padding-left: 20px;
+				position: auto;
+				right: auto;
+				width: auto;
 			}
 
 			background-color: $fedex-red;
@@ -68,13 +73,12 @@ h6 {
 			display: block;
 			font-family: monospace;
 			font-size: 20px;
-			padding: 20px;
-			
-			width: 100vw;
-			position: relative;
 			left: 50%;
-			right: 50%;
 			margin: 20px -50vw 0;
+			padding: 20px;
+			position: relative;
+			right: 50%;
+			width: 100vw;
 
 		}
 
@@ -99,5 +103,3 @@ a {
 	}
 
 }
-
-footer {}

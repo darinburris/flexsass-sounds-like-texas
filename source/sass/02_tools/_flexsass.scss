@@ -3,7 +3,7 @@
 
 @mixin grid() {
 
-	-js-display: flex;
+	-js-display: flex;// sass-lint:no-misspelled-properties
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;

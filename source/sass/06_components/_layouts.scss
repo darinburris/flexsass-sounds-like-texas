@@ -5,8 +5,8 @@ header {
 		@include grid-visual;
 	}
 
-	min-height: $hdr-min-height;
 	margin: 0 auto;
+	min-height: $hdr-min-height;
 	width: calc(100% - 20px);
 
 	h1,

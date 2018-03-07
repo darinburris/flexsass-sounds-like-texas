@@ -17,11 +17,20 @@
     "#SayNoToFloats"
   ],
   "author": "Darin Burris",
+  "contributes": {
+    "name": "Darin Burris",
+    "email": "darin@darinburris.com",
+    "url": "http://barnyrubble.tumblr.com/",
+    "nickname": "Big D in Big D"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/darinburris/flexsass-sounds-like-texas/issues"
   },
   "homepage": "https://github.com/darinburris/flexsass-sounds-like-texas#readme",
+  "engines": {
+    "node": "~9.5.0"
+  },
   "devDependencies": {
     "chalk": "^2.3.1",
     "cheerio": "^1.0.0-rc.2",
@@ -38,8 +47,7 @@
     "grunt-sass": "^2.1.0",
     "grunt-sass-lint": "^0.2.4",
     "load-grunt-tasks": "^3.5.2",
-    "node-bourbon": "^4.2.8",
-    "walkdir": "0.0.12"
+    "walkdir": "^0.0.12"
   },
   "dependencies": {
     "normalize.css": "^8.0.0"

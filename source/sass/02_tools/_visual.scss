@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 /// Creates a series of guide lines using the `background-image` property on a
 /// grid container to visualise the columns and gutters of the grid.
 ///
@@ -29,7 +29,7 @@
 
 	$_grid-columns: map-get($grid, columns);
 	$_grid-gutter: map-get($grid, gutters);
-	$_grid-visual-column: "#{_column-width($grid, 1)} + #{$_grid-gutter}px";
+	$_grid-visual-column: '#{_column-width($grid, 1)} + #{$_grid-gutter}px';
 	$_grid-visual:
 		transparent,
 		transparent $_grid-gutter + px,
