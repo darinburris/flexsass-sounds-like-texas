@@ -389,7 +389,7 @@ module.exports = function(grunt) {
 					paths.push(path);
 				}
 			});
-			var tocULStart = '<ul id="tocList" class="toc-list" role="list">',
+			var tocULStart = '<ul id="tocList" class="toc-list">',
 				tocLI = '',
 				tocULEnd = '</ul>';
 			//gruntgenerate TOC from html files
@@ -400,7 +400,7 @@ module.exports = function(grunt) {
 						path = fullPath.replace(flexConfig.base.releaseDir, ''),
 						webPath = path.replace(/\\/g, '/');
 					console.log(webPath);
-					tocLI += '<li role="listitem"><a href="' + webPath + '">' + titles[i] + '</a></li>';
+					tocLI += '<li><a href="' + webPath + '">' + titles[i] + '</a></li>';
 				}
 				if ((parentTask === 'default') || (parentTask === undefined)) {
 					var reportsLinks = grunt.file.read('source/includes/quality-toc.html');
