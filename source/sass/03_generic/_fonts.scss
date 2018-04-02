@@ -1,0 +1,44 @@
+@font-face {
+	font-family: 'rokkitt';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/assets/fonts/rokkitt-regular-webfont.eot') format('embedded-opentype'),
+	url('/assets/fonts/rokkitt-regular-webfont.woff') format('woff'),
+	url('/assets/fonts/rokkitt-regular-webfont.ttf') format('truetype'),
+	url('/assets/fonts/rokkitt-regular-webfont.svg#rokkittregular') format('svg');
+}
+
+@font-face {
+	font-family: 'rokkittbold';
+	font-style: normal;
+	font-weight: bold;
+	src: url('/assets/fonts/rokkitt-bold-webfont.eot') format('embedded-opentype'),
+	url('/assets/fonts/rokkitt-bold-webfont.woff') format('woff'),
+	url('/assets/fonts/rokkitt-bold-webfont.ttf') format('truetype'),
+	url('/assets/fonts/rokkitt-bold-webfont.svg#rokkittbold') format('svg');
+}
+
+@font-face {
+	font-family: 'quicksand';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/assets/fonts/quicksand-light-webfont.eot') format('embedded-opentype'),
+	url('/assets/fonts/quicksand-light-webfont.woff') format('woff'),
+	url('/assets/fonts/quicksand-light-webfont.ttf') format('truetype'),
+	url('/assets/fonts/quicksand-light-webfont.svg#quicksandlight') format('svg');
+}
+
+@font-face {
+	font-family: 'sofia_pro_light';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/assets/fonts/sofiaprolight-webfont.eot') format('embedded-opentype'),
+	url('/assets/fonts/sofiaprolight-webfont.woff') format('woff'),
+	url('/assets/fonts/sofiaprolight-webfont.ttf') format('truetype'),
+	url('/assets/fonts/sofiaprolight-webfont.svg#sofia_prolight') format('svg');
+}
+
+@font-face {
+	font-family: 'SofiaProRegular-webfont';
+	src:  url('/assets/fonts/SofiaProRegular-webfont.woff') format('woff');
+}

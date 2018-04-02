@@ -72,9 +72,7 @@ module.exports = function(grunt) {
 			target: [
 				'source/sass/**/*.scss',
 				'!source/sass/02_tools/_diagnostic.scss',
-				'!source/sass/02_tools/_rem.scss',
-				'!source/sass/03_generic/_normalize.scss',
-				'!source/sass/07_utilities/_access-scss.scss'
+				'!source/sass/03_generic/_normalize.scss'
 			]
 		},
 		/**

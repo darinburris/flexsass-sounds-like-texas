@@ -1,8 +1,1 @@
-$grid: () !default;
-$custom-grid: () !default;
-
-$grid: (
-	columns: 12,
-	max-width: 1200,
-	gutters: 20
-);
+@import 'vars';

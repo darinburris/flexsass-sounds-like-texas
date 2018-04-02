@@ -1,3 +1,10 @@
+#cli command to run sass-lint
+#sass-lint -v -q
+files:
+  include: 'source/sass/**/*.scss'
+  ignore:
+    - 'source/sass/02_tools/_diagnostic.scss'
+    - 'source/sass/03_generic/_normalize.scss'
 options:
   formatter: stylish
   merge-default-rules: false
@@ -44,8 +51,8 @@ rules:
     - 1
     - convention: hyphenatedlowercase
   indentation:
-    - 1
-    - size: 2
+    - 2
+    - size: tab
   leading-zero:
     - 1
     - include: false

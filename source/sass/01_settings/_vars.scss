@@ -12,8 +12,18 @@ $fedex-blue: #09c;
 $fedex-green: #0c0;
 $fedex-yellow: #fc0;
 
-$hdr-min-height: 220px;
-
 $helv: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$oswald: 'Oswald', sans-serif;
 $robo: 'Roboto Condensed', sans-serif;
+
+$hdr-min-height: 200px;
+
+// Grid map settings
+$grid: () !default;
+$custom-grid: () !default;
+
+$grid: (
+	columns: 12,
+	max-width: 992,
+	gutters: 20
+);
+

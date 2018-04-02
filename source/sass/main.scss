@@ -1,27 +1,50 @@
-/////////////////////SETTINGS/////////////////////
+// /////////////////////SETTINGS/////////////////////
 
-@import '01_settings/vars';
+// @import '01_settings/vars';
+// @import '01_settings/settings';
+
+// /////////////////////TOOLS/////////////////////
+
+// @import '02_tools/rem';
+// @import '02_tools/flexsass';
+// @import '02_tools/mixins';
+
+// /////////////////////GENERIC/////////////////////
+// @import '03_generic/normalize';
+// @import '03_generic/generic';
+
+// /////////////////////ELEMENTS/////////////////////
+
+// @import '04_elements/elements';
+
+// /////////////////////OBJECTS/////////////////////
+
+// /////////////////////COMPONENTS/////////////////////
+// @import '06_components/layouts';
+
+// /////////////////////UTILITIES/////////////////////
+
+// // @import '07_utilities/access-scss';
+
+/////////////////////SETTINGS/////////////////////
 @import '01_settings/settings';
 
 /////////////////////TOOLS/////////////////////
-
-@import '02_tools/rem';
-@import '02_tools/flexsass';
-@import '02_tools/mixins';
+@import '02_tools/tools';
 
 /////////////////////GENERIC/////////////////////
 @import '03_generic/normalize';
 @import '03_generic/generic';
 
 /////////////////////ELEMENTS/////////////////////
-
 @import '04_elements/elements';
 
 /////////////////////OBJECTS/////////////////////
+@import '05_objects/objects';
 
 /////////////////////COMPONENTS/////////////////////
+@import '06_components/components';
 @import '06_components/layouts';
 
 /////////////////////UTILITIES/////////////////////
-
-// @import '07_utilities/access-scss';
+@import '07_utilities/utilities';

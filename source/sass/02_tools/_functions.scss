@@ -1,3 +1,76 @@
+// @charset 'UTF-8';
+// /// Return a calulated column width that can then be passed in to a `calc()`.
+// ///
+// /// @argument {map} $grid
+// ///
+// /// @argument {number} $columns
+// ///
+// /// @return {string}
+// ///
+// /// @example scss@example scss
+// ///   _neat-column-width($neat-grid, 4)
+// ///
+// /// @access private@access private
+
+// @function _column-width($grid, $columns) {
+// 	$_column-ratio: _column-ratio($grid, $columns);
+// 	$_gutter: map-get($grid, gutters);
+
+// 	@if $_gutter == 0 {
+// 		@return unquote('#{percentage($_column-ratio)}');
+// 	} @else {
+// 	$_gutter-affordance: $_gutter + ($_gutter * $_column-ratio) + px;
+// 		@return unquote('#{percentage($_column-ratio)} - #{$_gutter-affordance}');
+// 	}
+// }
+
+// /// Determine the ratio of `$columns` to the total column count.
+// /// If `$columns` is more than one value, they are handed to
+// /// `_neat-parse-columns()` which will determine the total columns and use this
+// /// value instead of `total-columns`.
+// ///
+// /// @argument {map} $grid
+// ///
+// /// @argument {number | list} $columns
+// ///
+// /// @return {number}
+// ///
+// /// @example scss
+// ///   _neat-column-ratio($grid, 3)
+// ///
+// /// @access private
+
+// @function _column-ratio($grid, $columns) {
+// 	@if length($columns) > 1 {
+// 		@return nth($columns, 1) / _parse-columns($columns);
+// 	} @else if $columns {
+// 		@return $columns / map-get($grid, columns);
+// 	}
+// }
+
+// /// Parse a column count like `3 of 5` and retur the total coloumn count.
+// /// This is to allow a shorthand for custom grids without using a settings map.
+// ///
+// ///
+// /// @argument {list} $span
+// ///
+// /// @return {number}
+// ///
+// /// @example scss
+// ///   _neat-parse-columns(3 of 5)
+// ///
+// /// @access private
+
+// @function _parse-columns($span) {
+// 	@if length($span) == 3 {
+// 		$_total-columns: nth($span, 3);
+// 		@return $_total-columns;
+// 	} @else if length($span) == 2 or if length($span) >= 3 {
+// 		@error '`$column` should contain 2 values, seperated by an `of`';
+// 	}
+// }
+	
+
 @charset 'UTF-8';
 /// Return a calulated column width that can then be passed in to a `calc()`.
 ///
@@ -19,7 +92,7 @@
 	@if $_gutter == 0 {
 		@return unquote('#{percentage($_column-ratio)}');
 	} @else {
-	$_gutter-affordance: $_gutter + ($_gutter * $_column-ratio) + px;
+		$_gutter-affordance: $_gutter + ($_gutter * $_column-ratio) + px;
 		@return unquote('#{percentage($_column-ratio)} - #{$_gutter-affordance}');
 	}
 }
@@ -69,4 +142,26 @@
 		@error '`$column` should contain 2 values, seperated by an `of`';
 	}
 }
-	
+
+/// Append attributes to a the `$_grid-visual` variable in `grid-visual` mixin
+///
+/// @argument {map} $grid
+///
+/// @argument {number (unitless) | null} $columns
+///
+/// @return {number}
+///
+/// @example scss
+///   _neat-column-default($neat-grid, 4)
+///
+/// @access private
+
+@function _append-grid-visual($grid-visual-list, $attributes) {
+
+	@each $attribute in $attributes {
+		$grid-visual-list: append($grid-visual-list, $attribute, comma);
+	}
+
+	@return $grid-visual-list;
+
+}

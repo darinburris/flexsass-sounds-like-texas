@@ -1,3 +1,84 @@
+// @import 'functions';
+// @import 'visual';
+
+// @mixin grid() {
+
+// 	-js-display: flex;// sass-lint:no-misspelled-properties
+// 	display: flex;
+// 	flex-direction: row;
+// 	flex-wrap: wrap;
+// 	justify-content: space-between;
+// 	margin: 0 auto;
+// 	max-width: map-get($grid, max-width) + px;
+// 	padding-left: map-get($grid, gutters) + px; 
+// 	padding-right: map-get($grid, gutters) + px; 
+// 	width: 100%;
+
+// 	// @include media(tablet) {
+// 	// 	flex-wrap: nowrap;
+// 	// }
+
+// 	// @include media(desktop) {
+// 	// 	flex-wrap: nowrap;
+// 	// }
+
+// }
+
+// @mixin columns($cols) {
+
+// 	//set vars based on map values
+// 	$grid-width: map-get($grid, max-width);
+// 	$grid-cols: map-get($grid, columns);
+// 	$grid-gutter: map-get($grid, gutters);
+
+// 	//calculate values from $grid map vars
+// 	//takes the underlying cols var and calculates the visual columns
+// 	//this is a division of the $cols value and the map columns value
+// 	//for example, if the $cols var = 3, and the map columns vaue is 12
+// 	//we end up with 12/3 = 4, or 4 visable columns
+// 	//we then calculate the column width for each of the visible ciolumns
+// 	//by dividing the max width as defined in the map, with the number of visible columns
+// 	//giving us 1200/4 = 300, or in essance, 300px column width
+// 	$visual-cols: $grid-cols / $cols; // = 4
+// 	$col-width: $grid-width / $visual-cols; // = 300
+
+// 	//accounts for gutter  values and how they impact column width
+// 	//We need to account for the adjustment neccessary for each visible column
+// 	//width value (300px as calculated above), with the defined gutter value.
+// 	//This allows us to calculate the amount of width to remove from the visible
+// 	//column widths in order to create the desired grid columns
+// 	//The formula is map gutter value divided by the number of visible columns
+// 	//or, 20/4 = 5
+// 	//this new value is then removed from the visible column width below
+// 	$col-width-adjustment: $grid-gutter / $visual-cols; // = 5
+// 	$new-gutter: $col-width-adjustment + $grid-gutter; // = 25
+
+// 	//new column width after gutter values are applied
+// 	$final-col-width: $col-width - $new-gutter; // = 275, 
+
+// 	//calculate inner width of grid minus gutter padding
+// 	$new-grid-max-width: $grid-width - ($grid-gutter * 2);
+
+// 	//calculate percentage width
+// 	$col-width-perc: percentage($final-col-width / $new-grid-max-width);
+
+// 	//calculating gutter values based on # of cols in the map and the # of cols the element is meant to reside in
+// 	$margin-right: $grid-gutter + px;
+
+// 	//properties with resulting values from calculations above
+// 	$basis: $col-width-perc;
+// 	$width: $col-width-perc;
+// 	flex-basis: auto;
+// 	width: $width;
+
+// }
+
+// @mixin column-collapse() {
+// 	padding-left: 0;
+// 	padding-right: 0;
+// }
+
+
 @import 'functions';
 @import 'visual';
 
@@ -10,8 +91,8 @@
 	justify-content: space-between;
 	margin: 0 auto;
 	max-width: map-get($grid, max-width) + px;
-	padding-left: map-get($grid, gutters) + px; 
-	padding-right: map-get($grid, gutters) + px; 
+	padding-left: map-get($grid, gutters) + px;
+	padding-right: map-get($grid, gutters) + px;
 	width: 100%;
 
 	// @include media(tablet) {
@@ -54,7 +135,7 @@
 	$new-gutter: $col-width-adjustment + $grid-gutter; // = 25
 
 	//new column width after gutter values are applied
-	$final-col-width: $col-width - $new-gutter; // = 275, 
+	$final-col-width: $col-width - $new-gutter; // = 275,
 
 	//calculate inner width of grid minus gutter padding
 	$new-grid-max-width: $grid-width - ($grid-gutter * 2);
