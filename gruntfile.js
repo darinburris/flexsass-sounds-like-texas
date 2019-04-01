@@ -11,16 +11,14 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 	const flexConfig = grunt.file.readJSON('flexsass-config.json');
 	// Project configuration.
-	grunt.initConfig(
-		{
-
+	grunt.initConfig({
 		/**
 		 * @description grunt include task recursively includes static html files into each other ******************
-		**/
+		 **/
 		includes: {
 			build: {
 				cwd: 'source',
-				src: [ '*.html', '**/*.html' ],
+				src: ['*.html', '**/*.html'],
 				dest: 'release/',
 				options: {
 					flatten: true,
@@ -31,10 +29,10 @@ module.exports = function(grunt) {
 			}
 		},
 		/**
-		* @description  grunt task compiles sass files, copies them into a pre release
-		* folder under /source/ in order to allow for linting prior to
-		* minification/concatination
-		**/
+		 * @description  grunt task compiles sass files, copies them into a pre release
+		 * folder under /source/ in order to allow for linting prior to
+		 * minification/concatination
+		 **/
 		sass: {
 			dist: {
 				files: [
@@ -67,7 +65,7 @@ module.exports = function(grunt) {
 		 */
 		sasslint: {
 			options: {
-				configFile: '.sass-lint.yml',
+				configFile: '.sass-lint.yml'
 			},
 			target: [
 				'source/sass/**/*.scss',
@@ -80,37 +78,34 @@ module.exports = function(grunt) {
 		 */
 		copy: {
 			buildHTML: {
-				files: [{
-					expand: true,
-					cwd: './source',
-					src: [
-						'**/*.html',
-						'!/includes'
-					],
-					dest: './release'
-				}]
+				files: [
+					{
+						expand: true,
+						cwd: './source',
+						src: ['**/*.html', '!/includes'],
+						dest: './release'
+					}
+				]
 			},
 			buildIMG: {
-				files: [{
-					expand: true,
-					cwd: './source',
-					src: [
-						'**/*.jpg',
-						'**/*.gif',
-						'**/*.png'
-					],
-					dest: './release'
-				}]
+				files: [
+					{
+						expand: true,
+						cwd: './source',
+						src: ['**/*.jpg', '**/*.gif', '**/*.png'],
+						dest: './release'
+					}
+				]
 			},
 			buildJS: {
-				files: [{
-					expand: true,
-					cwd: './source',
-					src: [
-						'**/*.js'
-					],
-					dest: './release'
-				}]
+				files: [
+					{
+						expand: true,
+						cwd: './source',
+						src: ['**/*.js'],
+						dest: './release'
+					}
+				]
 			},
 			dist: {
 				files: [
@@ -139,11 +134,9 @@ module.exports = function(grunt) {
 			sass: {
 				files: [
 					{
-						src: [
-							'./release/sass'
-						],
+						src: ['./release/sass'],
 						dest: './release/css'
-					},
+					}
 				]
 			}
 		},
@@ -153,9 +146,7 @@ module.exports = function(grunt) {
 		 */
 		clean: {
 			preRelease: ['./release'],
-			postRelease: [
-				'./release/includes'
-			],
+			postRelease: ['./release/includes'],
 			cssRelease: ['./release/css'],
 			reports: ['./reports/']
 		},
@@ -165,40 +156,49 @@ module.exports = function(grunt) {
 		replace: {
 			localize: {
 				options: {
-					patterns: [{
-						match: 'langCntry',
-						replacement: flexConfig.base.langCntry,
-						expression: true
-					}, {
-						match: 'direction',
-						replacement: flexConfig.base.direction,
-						expression: true
-					}]
+					patterns: [
+						{
+							match: 'langCntry',
+							replacement: flexConfig.base.langCntry,
+							expression: true
+						},
+						{
+							match: 'direction',
+							replacement: flexConfig.base.direction,
+							expression: true
+						}
+					]
 				},
-				files: [{
-					expand: true,
-					cwd: flexConfig.base.releaseDir,
-					flatten: false,
-					src: ['**/*.html', '!js', '!css'],
-					dest: flexConfig.base.releaseDir
-				}]
+				files: [
+					{
+						expand: true,
+						cwd: flexConfig.base.releaseDir,
+						flatten: false,
+						src: ['**/*.html', '!js', '!css'],
+						dest: flexConfig.base.releaseDir
+					}
+				]
 			},
 			toc: {
 				options: {
-					patterns: [{
-						match: '<!--toc-->',
-						replacement: function() {
-							return grunt.config.get('tocData');
+					patterns: [
+						{
+							match: '<!--toc-->',
+							replacement: function() {
+								return grunt.config.get('tocData');
+							}
 						}
-					}]
+					]
 				},
-				files: [{
-					expand: true,
-					cwd: flexConfig.base.releaseDir,
-					flatten: true,
-					src: ['**/*.html'],
-					dest: flexConfig.base.releaseDir
-				}]
+				files: [
+					{
+						expand: true,
+						cwd: flexConfig.base.releaseDir,
+						flatten: true,
+						src: ['**/*.html'],
+						dest: flexConfig.base.releaseDir
+					}
+				]
 			}
 		},
 		/**
@@ -207,16 +207,21 @@ module.exports = function(grunt) {
 		prompt: {
 			temps: {
 				options: {
-					questions: [{
-						config: 'echo.templatesList', // arbitray name or config for any other grunt task
-						type: 'list', // list, checkbox, confirm, input, password
-						message: 'Please choose a template type', // Question to ask the user, function needs to return a string,
-						choices: flexConfig.templating.choices
-					}],
+					questions: [
+						{
+							config: 'echo.templatesList', // arbitray name or config for any other grunt task
+							type: 'list', // list, checkbox, confirm, input, password
+							message: 'Please choose a template type', // Question to ask the user, function needs to return a string,
+							choices: flexConfig.templating.choices
+						}
+					],
 					then: function(results) {
 						var choice = '';
 						for (var key in results) {
-							if (key === 'length' || !results.hasOwnProperty(key)) {
+							if (
+								key === 'length' ||
+								!results.hasOwnProperty(key)
+							) {
 								continue;
 							}
 							choice = results[key];
@@ -232,27 +237,28 @@ module.exports = function(grunt) {
 		 */
 		watch: {
 			scss: {
-				files: [
-					'./source/sass/**/*.scss'
+				files: ['./source/sass/**/*.scss'],
+				tasks: [
+					'clean:cssRelease',
+					'sass:watching',
+					'sasslint',
+					'rename:sass'
 				],
-				tasks: ['clean:cssRelease','sass:watching','sasslint','rename:sass'],
 				options: {
-					spawn: false
+					spawn: false,
+					livereload: true
 				}
 			},
 			js: {
-				files: [
-					'./source/js/**/*'
-				],
-				tasks: ['eslint','mochaTest'],
+				files: ['./source/js/**/*'],
+				tasks: ['eslint', 'mochaTest'],
 				options: {
-					spawn: true
+					spawn: true,
+					livereload: true
 				}
 			},
 			html: {
-				files: [
-					'./source/**/*.html'
-				],
+				files: ['./source/**/*.html'],
 				tasks: ['copy:buildHTML'],
 				options: {
 					spawn: false
@@ -269,25 +275,23 @@ module.exports = function(grunt) {
 		'This task omits the ccsmin and uglify tasks for debugging purposes',
 		function() {
 			grunt.config.set('taskName', this.name);
-			grunt.task.run(
-				[
-					"clean:preRelease",
-					"copy:buildHTML",
-					"copy:buildIMG",
-					"copy:buildJS",
-					"sasslint",
-					"sass:dist",
-					"rename:sass",
-					"includes",
-					"replace:localize",
-					"clean:postRelease",
-					"genTOC"
-				]
-			);
+			grunt.task.run([
+				'clean:preRelease',
+				'copy:buildHTML',
+				'copy:buildIMG',
+				'copy:buildJS',
+				'sasslint',
+				'sass:dist',
+				'rename:sass',
+				'includes',
+				'replace:localize',
+				'clean:postRelease',
+				'genTOC'
+			]);
 		}
 	);
 
-		//The following are custom registered tasks
+	//The following are custom registered tasks
 	/**
 	 * @description Parent task for generating tempalate files based on a pre-defined list of available template types.
 	 */
@@ -303,9 +307,21 @@ module.exports = function(grunt) {
 				cwd = process.cwd();
 			grunt.config.set('templateToMake', templateToMake);
 			grunt.config.set('gotoPrompt', true);
-			if ((!templateToMake) || (templateToMake === null) || (templateToMake === true)) {
-				console.log(error('Please provide a path and file name using --tempName=path/and/filename(no extension)'));
-				console.log(error('To create a template at root level, simply provide the file name (no extension) --tempName=filename'));
+			if (
+				!templateToMake ||
+				templateToMake === null ||
+				templateToMake === true
+			) {
+				console.log(
+					error(
+						'Please provide a path and file name using --tempName=path/and/filename(no extension)'
+					)
+				);
+				console.log(
+					error(
+						'To create a template at root level, simply provide the file name (no extension) --tempName=filename'
+					)
+				);
 				return;
 			}
 			walk.sync(source, function(wpath) {
@@ -313,13 +329,20 @@ module.exports = function(grunt) {
 					ext = wpath.substring(extPos),
 					currFile = cwd + '/' + source + '/' + templateToMake + ext;
 				if (currFile === wpath) {
-					console.log(error('ERROR: You have chosen a template that already exists.\nPlease choose a different name.'));
+					console.log(
+						error(
+							'ERROR: You have chosen a template that already exists.\nPlease choose a different name.'
+						)
+					);
 					grunt.config.set('gotoPrompt', false);
 					return;
 				}
 			});
 			if (grunt.config.get('gotoPrompt') === true) {
-				grunt.config.set('templateChoices', flexConfig.templating.choices);
+				grunt.config.set(
+					'templateChoices',
+					flexConfig.templating.choices
+				);
 				grunt.task.run('prompt:temps');
 			}
 		}
@@ -327,30 +350,43 @@ module.exports = function(grunt) {
 	/**
 	 * @description This task is a follow-up task that generates templates based on the user selected tamplate type.
 	 */
-	grunt.registerTask('tempCreate', 'This task is a follow-up task that generates templates based on the user selected tamplate type.', function() {
-		var choice = grunt.config.get('chosenTemplate'),
-			extPos = choice.lastIndexOf('.'),
-			ext = choice.substring(extPos),
-			tempsPath = flexConfig.base.templateBaseFiles,
-			templateToMake = grunt.config.get('templateToMake'),
-			fsx = require('fs-extra'),
-			source = flexConfig.base.sourceDir,
-			templatePath = templateToMake,
-			tempName = '';
-		if (templatePath.indexOf('/') > 0) {
-			templatePath = templateToMake.split('/');
-			tempName = templatePath[templatePath.length - 1];
-			templatePath = templatePath.join('/');
-			templatePath = templatePath.replace(tempName, '');
-			templatePath = source + '/' + templatePath;
-			fsx.mkdirsSync(templatePath);
-			fsx.copySync(tempsPath + '/' + choice, templatePath + '/' + choice);
-			fsx.renameSync(templatePath + choice, templatePath + tempName + ext);
-		} else {
-			fsx.copySync(tempsPath + '/' + choice, source + '/' + choice);
-			fsx.renameSync(source + '/' + choice, source + '/' + templatePath + ext);
+	grunt.registerTask(
+		'tempCreate',
+		'This task is a follow-up task that generates templates based on the user selected tamplate type.',
+		function() {
+			var choice = grunt.config.get('chosenTemplate'),
+				extPos = choice.lastIndexOf('.'),
+				ext = choice.substring(extPos),
+				tempsPath = flexConfig.base.templateBaseFiles,
+				templateToMake = grunt.config.get('templateToMake'),
+				fsx = require('fs-extra'),
+				source = flexConfig.base.sourceDir,
+				templatePath = templateToMake,
+				tempName = '';
+			if (templatePath.indexOf('/') > 0) {
+				templatePath = templateToMake.split('/');
+				tempName = templatePath[templatePath.length - 1];
+				templatePath = templatePath.join('/');
+				templatePath = templatePath.replace(tempName, '');
+				templatePath = source + '/' + templatePath;
+				fsx.mkdirsSync(templatePath);
+				fsx.copySync(
+					tempsPath + '/' + choice,
+					templatePath + '/' + choice
+				);
+				fsx.renameSync(
+					templatePath + choice,
+					templatePath + tempName + ext
+				);
+			} else {
+				fsx.copySync(tempsPath + '/' + choice, source + '/' + choice);
+				fsx.renameSync(
+					source + '/' + choice,
+					source + '/' + templatePath + ext
+				);
+			}
 		}
-	});
+	);
 	/**
 	 * @description Task that generates a table of contents from the current file list Then injects this list into the index.html file
 	 */
@@ -376,7 +412,12 @@ module.exports = function(grunt) {
 			full paths for each file returned
 			*/
 			walk.sync(source, function(path) {
-				if ((path.substr(-5) === '.html') && (path.indexOf('release/index.html') === -1) && (path.indexOf('includes') === -1) && (path.indexOf('bower_components') === -1)) {
+				if (
+					path.substr(-5) === '.html' &&
+					path.indexOf('release/index.html') === -1 &&
+					path.indexOf('includes') === -1 &&
+					path.indexOf('bower_components') === -1
+				) {
 					var DOM = fs.readFileSync(path, 'utf8'),
 						currFile = path.split('/'),
 						fname = currFile.slice(-1)[0],
@@ -398,10 +439,17 @@ module.exports = function(grunt) {
 						path = fullPath.replace(flexConfig.base.releaseDir, ''),
 						webPath = path.replace(/\\/g, '/');
 					console.log(webPath);
-					tocLI += '<li><a href="' + webPath + '">' + titles[i] + '</a></li>';
+					tocLI +=
+						'<li><a href="' +
+						webPath +
+						'">' +
+						titles[i] +
+						'</a></li>';
 				}
-				if ((parentTask === 'default') || (parentTask === undefined)) {
-					var reportsLinks = grunt.file.read('source/includes/quality-toc.html');
+				if (parentTask === 'default' || parentTask === undefined) {
+					var reportsLinks = grunt.file.read(
+						'source/includes/quality-toc.html'
+					);
 					TOC = tocULStart + tocLI + tocULEnd + reportsLinks;
 				} else {
 					TOC = tocULStart + tocLI + tocULEnd;
@@ -411,5 +459,4 @@ module.exports = function(grunt) {
 			}
 		}
 	);
-
 };

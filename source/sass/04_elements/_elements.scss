@@ -1,10 +1,21 @@
-body {
+html {
+	box-sizing: border-box;
+}
 
+* {
+	box-sizing: inherit;
+
+	&:before,
+	&:after {
+		box-sizing: inherit;
+	}
+}
+
+body {
 	color: $black;
 	font-family: $helv;
 	font-size: 16px;
 	font-weight: 300;
-
 }
 
 section,
@@ -19,12 +30,10 @@ h3,
 h4,
 h5,
 h6 {
-
 	&::selection {
 		background: $fedex-yellow;
 		color: $fedex-purple;
 	}
-
 }
 
 h1,
@@ -33,13 +42,10 @@ h3,
 h4,
 h5,
 h6 {
-
 	font-weight: 400;
 
 	&.logo {
-
 		a {
-
 			color: $fedex-orange;
 			font-family: $helv;
 			font-size: rem(78px);
@@ -50,11 +56,9 @@ h6 {
 			strong {
 				color: $fedex-purple;
 			}
-
 		}
 
 		q {
-
 			@include media(tablet-up) {
 				background-color: transparent;
 				color: $black;
@@ -79,19 +83,15 @@ h6 {
 			position: relative;
 			right: 50%;
 			width: 100vw;
-
 		}
-
 	}
-
 }
 
 a {
-
 	color: $fedex-blue;
 
 	&:visited {
-		color: $fedex-blue;		
+		color: $fedex-blue;
 	}
 
 	&:hover {
@@ -101,5 +101,4 @@ a {
 	&:active {
 		color: $fedex-green;
 	}
-
 }
