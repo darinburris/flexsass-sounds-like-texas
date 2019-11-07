@@ -1,3 +1,22 @@
 .body-container {
 	min-height: 500px;
 }
+
+.clock {
+	background: red;
+	color: white;
+	font-family: courier, monospace;
+	font-size: 24px;
+
+	div {
+		& > span {
+			border-bottom: 3px solid white;
+			border-left: 1px solid white;
+			border-right: 1px solid white;
+			border-top: 3px solid white;
+			display: inline-block;
+			padding: 6px 4px;
+			margin: 2px;
+		}
+	}
+}
